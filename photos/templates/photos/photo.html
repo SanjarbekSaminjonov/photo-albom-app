@@ -6,6 +6,13 @@ View photo
 
 {% block content %}
 
-
+<a class="btn btn-dark mb-4" href="{% url 'gallery' %}">Go Back</a>
+<div>
+    <h4 class="mt-2">Category: {{photo.category.name}}</h4>
+    <p>{{photo.description}}</p>
+</div>
+<div align="center">
+    <img style="width: 90vh; max-width: 100%; max-height: 100%;" src="{{photo.image.url}}" alt="Card image cap">
+</div>
 
 {% endblock content %}

@@ -14,15 +14,18 @@
 
     <style>
         .image-thumbail {
-            object-fit: none; /* Do not scale the image */
-            object-position: center; /* Center the image within the element */
-            width: 100%;          
+            object-fit: cover;         
             height: 200px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
         }
     </style>
 </head>
 
-<body class="mt-5">
+<body class="my-4">
     <div class="container">
 
         {% block content %}
