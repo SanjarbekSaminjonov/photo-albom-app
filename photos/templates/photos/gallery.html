@@ -1,0 +1,115 @@
+{% extends 'photos/base.html' %}
+
+{% block title %}
+Gallery
+{% endblock title %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-3">
+
+        <div class="card">
+            <div class="card-header">
+                Categories
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">All</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="col-md-9">
+        <div class="row">
+
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img class="image-thumbail"
+                        src="https://lh3.googleusercontent.com/MUrIa6bBdFYJcXEPaGcdf_OAyMlka2h-E01V_z9oV0np4v0-yXrHoVXhk40YSfyg2XtOg9cfVgExX4K1SM_VfnrcAsjb2mNNejHNOaizQ5v2XWA5JBqxXHq2V8mM6TknXmdlnBOIMyWPXvZOKqrm0ze_MTSWb0F7NJi7mgSell-QvJsx3D4IImN_STUw4dm68q6i0-OburyEkHqU5Nl96ZMjecz7LPrGocM3XPsbcw27d9dPDfO28OvAXFmBt5Gs5TpqhJlLahWfk5q-PQW-OYenBsNLkQIvxipIpxNbJYlI3df5OKn8tD1ToRSW38M1eHS0zgz5RLKsRCKpt5tClc_nD7UdzdGbk9-fEdmlMtUsg0bmwgBuswWLOUK9tW8iMc7p4Hc34jEvTsDNrBnXOu5NdqAsFFi9_jZ_gr5CAqouekJlXuGokAY-zh9LbPDQ6RXIyTBv35IQaQ3N4_H8cYcH6mAGOmTEDbqrxpTDcbQCIPYnh7_isz5IoqL-wbU_f7ydvTa-tHIQZ8OVXU3D7mzMp8ZItDUHO2sNH_xRcwWySPNhz10i5zAvvqEY3NYhcHpsWdQG9kzBBm9EEciaa3WRHFErCRNTX3GTON2cDuoR6D0hHaezBou9Bc91CZt8Np901GbmwPSItvXJfk0_3aivpXK97KeuNkAONchHaSfBUjHvqH7SenqIj_MeIi6sSF-ZXkAaKgxIIokw9lKAGayK=s250-k-rw-no"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <small class="card-text">Category: Friends</small>
+                    </div>
+                    <a class="btn btn-outline-dark btn-sm m-2" href="{% url 'photo' 1 %}">View</a>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img class="image-thumbail"
+                        src="https://lh3.googleusercontent.com/MUrIa6bBdFYJcXEPaGcdf_OAyMlka2h-E01V_z9oV0np4v0-yXrHoVXhk40YSfyg2XtOg9cfVgExX4K1SM_VfnrcAsjb2mNNejHNOaizQ5v2XWA5JBqxXHq2V8mM6TknXmdlnBOIMyWPXvZOKqrm0ze_MTSWb0F7NJi7mgSell-QvJsx3D4IImN_STUw4dm68q6i0-OburyEkHqU5Nl96ZMjecz7LPrGocM3XPsbcw27d9dPDfO28OvAXFmBt5Gs5TpqhJlLahWfk5q-PQW-OYenBsNLkQIvxipIpxNbJYlI3df5OKn8tD1ToRSW38M1eHS0zgz5RLKsRCKpt5tClc_nD7UdzdGbk9-fEdmlMtUsg0bmwgBuswWLOUK9tW8iMc7p4Hc34jEvTsDNrBnXOu5NdqAsFFi9_jZ_gr5CAqouekJlXuGokAY-zh9LbPDQ6RXIyTBv35IQaQ3N4_H8cYcH6mAGOmTEDbqrxpTDcbQCIPYnh7_isz5IoqL-wbU_f7ydvTa-tHIQZ8OVXU3D7mzMp8ZItDUHO2sNH_xRcwWySPNhz10i5zAvvqEY3NYhcHpsWdQG9kzBBm9EEciaa3WRHFErCRNTX3GTON2cDuoR6D0hHaezBou9Bc91CZt8Np901GbmwPSItvXJfk0_3aivpXK97KeuNkAONchHaSfBUjHvqH7SenqIj_MeIi6sSF-ZXkAaKgxIIokw9lKAGayK=s250-k-rw-no"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <small class="card-text">Category: Friends</small>
+                    </div>
+                    <a class="btn btn-outline-dark btn-sm m-2" href="">View</a>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img class="image-thumbail"
+                        src="https://lh3.googleusercontent.com/MUrIa6bBdFYJcXEPaGcdf_OAyMlka2h-E01V_z9oV0np4v0-yXrHoVXhk40YSfyg2XtOg9cfVgExX4K1SM_VfnrcAsjb2mNNejHNOaizQ5v2XWA5JBqxXHq2V8mM6TknXmdlnBOIMyWPXvZOKqrm0ze_MTSWb0F7NJi7mgSell-QvJsx3D4IImN_STUw4dm68q6i0-OburyEkHqU5Nl96ZMjecz7LPrGocM3XPsbcw27d9dPDfO28OvAXFmBt5Gs5TpqhJlLahWfk5q-PQW-OYenBsNLkQIvxipIpxNbJYlI3df5OKn8tD1ToRSW38M1eHS0zgz5RLKsRCKpt5tClc_nD7UdzdGbk9-fEdmlMtUsg0bmwgBuswWLOUK9tW8iMc7p4Hc34jEvTsDNrBnXOu5NdqAsFFi9_jZ_gr5CAqouekJlXuGokAY-zh9LbPDQ6RXIyTBv35IQaQ3N4_H8cYcH6mAGOmTEDbqrxpTDcbQCIPYnh7_isz5IoqL-wbU_f7ydvTa-tHIQZ8OVXU3D7mzMp8ZItDUHO2sNH_xRcwWySPNhz10i5zAvvqEY3NYhcHpsWdQG9kzBBm9EEciaa3WRHFErCRNTX3GTON2cDuoR6D0hHaezBou9Bc91CZt8Np901GbmwPSItvXJfk0_3aivpXK97KeuNkAONchHaSfBUjHvqH7SenqIj_MeIi6sSF-ZXkAaKgxIIokw9lKAGayK=s250-k-rw-no"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <small class="card-text">Category: Friends</small>
+                    </div>
+                    <a class="btn btn-outline-dark btn-sm m-2" href="">View</a>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img class="image-thumbail"
+                        src="https://lh3.googleusercontent.com/MUrIa6bBdFYJcXEPaGcdf_OAyMlka2h-E01V_z9oV0np4v0-yXrHoVXhk40YSfyg2XtOg9cfVgExX4K1SM_VfnrcAsjb2mNNejHNOaizQ5v2XWA5JBqxXHq2V8mM6TknXmdlnBOIMyWPXvZOKqrm0ze_MTSWb0F7NJi7mgSell-QvJsx3D4IImN_STUw4dm68q6i0-OburyEkHqU5Nl96ZMjecz7LPrGocM3XPsbcw27d9dPDfO28OvAXFmBt5Gs5TpqhJlLahWfk5q-PQW-OYenBsNLkQIvxipIpxNbJYlI3df5OKn8tD1ToRSW38M1eHS0zgz5RLKsRCKpt5tClc_nD7UdzdGbk9-fEdmlMtUsg0bmwgBuswWLOUK9tW8iMc7p4Hc34jEvTsDNrBnXOu5NdqAsFFi9_jZ_gr5CAqouekJlXuGokAY-zh9LbPDQ6RXIyTBv35IQaQ3N4_H8cYcH6mAGOmTEDbqrxpTDcbQCIPYnh7_isz5IoqL-wbU_f7ydvTa-tHIQZ8OVXU3D7mzMp8ZItDUHO2sNH_xRcwWySPNhz10i5zAvvqEY3NYhcHpsWdQG9kzBBm9EEciaa3WRHFErCRNTX3GTON2cDuoR6D0hHaezBou9Bc91CZt8Np901GbmwPSItvXJfk0_3aivpXK97KeuNkAONchHaSfBUjHvqH7SenqIj_MeIi6sSF-ZXkAaKgxIIokw9lKAGayK=s250-k-rw-no"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <small class="card-text">Category: Friends</small>
+                    </div>
+                    <a class="btn btn-outline-dark btn-sm m-2" href="">View</a>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img class="image-thumbail"
+                        src="https://lh3.googleusercontent.com/MUrIa6bBdFYJcXEPaGcdf_OAyMlka2h-E01V_z9oV0np4v0-yXrHoVXhk40YSfyg2XtOg9cfVgExX4K1SM_VfnrcAsjb2mNNejHNOaizQ5v2XWA5JBqxXHq2V8mM6TknXmdlnBOIMyWPXvZOKqrm0ze_MTSWb0F7NJi7mgSell-QvJsx3D4IImN_STUw4dm68q6i0-OburyEkHqU5Nl96ZMjecz7LPrGocM3XPsbcw27d9dPDfO28OvAXFmBt5Gs5TpqhJlLahWfk5q-PQW-OYenBsNLkQIvxipIpxNbJYlI3df5OKn8tD1ToRSW38M1eHS0zgz5RLKsRCKpt5tClc_nD7UdzdGbk9-fEdmlMtUsg0bmwgBuswWLOUK9tW8iMc7p4Hc34jEvTsDNrBnXOu5NdqAsFFi9_jZ_gr5CAqouekJlXuGokAY-zh9LbPDQ6RXIyTBv35IQaQ3N4_H8cYcH6mAGOmTEDbqrxpTDcbQCIPYnh7_isz5IoqL-wbU_f7ydvTa-tHIQZ8OVXU3D7mzMp8ZItDUHO2sNH_xRcwWySPNhz10i5zAvvqEY3NYhcHpsWdQG9kzBBm9EEciaa3WRHFErCRNTX3GTON2cDuoR6D0hHaezBou9Bc91CZt8Np901GbmwPSItvXJfk0_3aivpXK97KeuNkAONchHaSfBUjHvqH7SenqIj_MeIi6sSF-ZXkAaKgxIIokw9lKAGayK=s250-k-rw-no"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <small class="card-text">Category: Friends</small>
+                    </div>
+                    <a class="btn btn-outline-dark btn-sm m-2" href="">View</a>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img class="image-thumbail"
+                        src="https://lh3.googleusercontent.com/MUrIa6bBdFYJcXEPaGcdf_OAyMlka2h-E01V_z9oV0np4v0-yXrHoVXhk40YSfyg2XtOg9cfVgExX4K1SM_VfnrcAsjb2mNNejHNOaizQ5v2XWA5JBqxXHq2V8mM6TknXmdlnBOIMyWPXvZOKqrm0ze_MTSWb0F7NJi7mgSell-QvJsx3D4IImN_STUw4dm68q6i0-OburyEkHqU5Nl96ZMjecz7LPrGocM3XPsbcw27d9dPDfO28OvAXFmBt5Gs5TpqhJlLahWfk5q-PQW-OYenBsNLkQIvxipIpxNbJYlI3df5OKn8tD1ToRSW38M1eHS0zgz5RLKsRCKpt5tClc_nD7UdzdGbk9-fEdmlMtUsg0bmwgBuswWLOUK9tW8iMc7p4Hc34jEvTsDNrBnXOu5NdqAsFFi9_jZ_gr5CAqouekJlXuGokAY-zh9LbPDQ6RXIyTBv35IQaQ3N4_H8cYcH6mAGOmTEDbqrxpTDcbQCIPYnh7_isz5IoqL-wbU_f7ydvTa-tHIQZ8OVXU3D7mzMp8ZItDUHO2sNH_xRcwWySPNhz10i5zAvvqEY3NYhcHpsWdQG9kzBBm9EEciaa3WRHFErCRNTX3GTON2cDuoR6D0hHaezBou9Bc91CZt8Np901GbmwPSItvXJfk0_3aivpXK97KeuNkAONchHaSfBUjHvqH7SenqIj_MeIi6sSF-ZXkAaKgxIIokw9lKAGayK=s250-k-rw-no"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <small class="card-text">Category: Friends</small>
+                    </div>
+                    <a class="btn btn-outline-dark btn-sm m-2" href="">View</a>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img class="image-thumbail"
+                        src="https://lh3.googleusercontent.com/MUrIa6bBdFYJcXEPaGcdf_OAyMlka2h-E01V_z9oV0np4v0-yXrHoVXhk40YSfyg2XtOg9cfVgExX4K1SM_VfnrcAsjb2mNNejHNOaizQ5v2XWA5JBqxXHq2V8mM6TknXmdlnBOIMyWPXvZOKqrm0ze_MTSWb0F7NJi7mgSell-QvJsx3D4IImN_STUw4dm68q6i0-OburyEkHqU5Nl96ZMjecz7LPrGocM3XPsbcw27d9dPDfO28OvAXFmBt5Gs5TpqhJlLahWfk5q-PQW-OYenBsNLkQIvxipIpxNbJYlI3df5OKn8tD1ToRSW38M1eHS0zgz5RLKsRCKpt5tClc_nD7UdzdGbk9-fEdmlMtUsg0bmwgBuswWLOUK9tW8iMc7p4Hc34jEvTsDNrBnXOu5NdqAsFFi9_jZ_gr5CAqouekJlXuGokAY-zh9LbPDQ6RXIyTBv35IQaQ3N4_H8cYcH6mAGOmTEDbqrxpTDcbQCIPYnh7_isz5IoqL-wbU_f7ydvTa-tHIQZ8OVXU3D7mzMp8ZItDUHO2sNH_xRcwWySPNhz10i5zAvvqEY3NYhcHpsWdQG9kzBBm9EEciaa3WRHFErCRNTX3GTON2cDuoR6D0hHaezBou9Bc91CZt8Np901GbmwPSItvXJfk0_3aivpXK97KeuNkAONchHaSfBUjHvqH7SenqIj_MeIi6sSF-ZXkAaKgxIIokw9lKAGayK=s250-k-rw-no"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <small class="card-text">Category: Friends</small>
+                    </div>
+                    <a class="btn btn-outline-dark btn-sm m-2" href="">View</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
