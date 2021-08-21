@@ -17,6 +17,7 @@ Gallery
                 {% for category in categories %}
                 <a href="{% url 'gallery' %}?category={{category.name}}" class="list-group-item">{{category.name}}</a>
                 {% endfor %}
+                <a class="btn btn-outline-dark btn-sm m-2" href="{% url 'category_manager' %}">Category manager</a>
                 <a class="btn btn-dark btn-sm m-2" href="{% url 'add' %}">Add photo</a>
             </ul>
         </div>

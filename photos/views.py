@@ -12,7 +12,7 @@ def gallery(request):
         photos = Photo.objects.all()
     else:
         photos = Photo.objects.filter(category__name=category_name)
-    
+
     categories = Category.objects.all()
 
     context = {
@@ -29,11 +29,12 @@ def addPhoto(request):
         data = request.POST
         image = request.FILES.get('image')
 
-        if data['category'] != 'none':
+        if data['category'] != 'none' and data['category_new'] == '':
             category = Category.objects.get(id=data['category'])
-        if data['category_new'] != '':
+
+        elif data['category_new'] != '':
             category, created = Category.objects.get_or_create(
-                name=data['category_new'].title
+                name=data['category_new'].title()
             )
         else:
             category = None
@@ -43,7 +44,6 @@ def addPhoto(request):
             description=data['description'],
             image=image,
         )
-        print(photo.id)
         return redirect('photo', pk=photo.id)
 
     context = {
@@ -58,3 +58,32 @@ def viewPhoto(request, pk):
         'photo': photo,
     }
     return render(request, 'photos/photo.html', context)
+
+
+def deletePhoto(request, pk):
+    photo = Photo.objects.get(id=pk)
+    photo.delete()
+    return redirect('gallery')
+
+
+def categoryManager(request):
+    msg = ''
+
+    if request.method == 'POST':
+        category_new = request.POST['category_new'].title()
+        category, created = Category.objects.get_or_create(name=category_new)
+        if not created:
+            msg = 'It has already created!'
+    
+    categories = Category.objects.all()
+    context = {
+        'categories': categories[::-1],
+        'msg': msg
+    }
+    return render(request, 'photos/category.html', context)
+
+
+def deleteCategory(request, pk):
+    category = Category.objects.get(id=pk)
+    category.delete()
+    return redirect('category_manager')

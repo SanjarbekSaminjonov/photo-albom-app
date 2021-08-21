@@ -1,0 +1,46 @@
+{% extends 'photos/base.html' %}
+
+{% block title %}
+Category manager
+{% endblock title %}
+
+{% block content %}
+
+<a class="btn btn-dark mb-4" href="{% url 'gallery' %}">Go Back</a>
+
+<div class="row">
+    <div class="col-md-3">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="category_new">Create a new category:</label>
+                <input type="text" placeholder="Enter a new category name" class="form-control" id="category_new"
+                    name="category_new">
+            </div>
+            
+            <input type="submit" class="btn btn-primary btn-block mt-3" value="Create">
+        </form>
+
+        <span class="my-2" style="color: red;">{{msg}}</span>
+    </div>
+
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+        <table>
+            {% for category in categories %}
+            <tr class="border">
+                <td class="p-3">
+                    <h5>{{category.name}}</h5>
+                </td>
+                <td class="p-3">
+                    <a href="{% url 'delete_category' category.id %}" class="btn btn-outline-danger btn-sm">delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</div>
+
+{% endblock content %}
