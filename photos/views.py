@@ -1,7 +1,36 @@
 from django.shortcuts import render, redirect
 from .models import Category, Photo
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
+
+def loginUser(request):
+    username = ''
+    msg = ''
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('gallery')
+        else:
+            msg = 'Username or password is wrong!'
+    context = {
+        'username': username,
+        'msg': msg,
+    }
+
+    return render(request, 'photos/login_register.html', context)
+
+
+@login_required(login_url='login')
+def logoutUser(request):
+    logout(request)
+    return redirect('gallery')
 
 
 def gallery(request):
@@ -21,6 +50,7 @@ def gallery(request):
     return render(request, 'photos/gallery.html', context)
 
 
+@login_required(login_url='login')
 def addPhoto(request):
     categories = Category.objects.all()
 
@@ -43,20 +73,21 @@ def addPhoto(request):
             description=data['description'],
             image=image,
         )
-        return redirect('photo', pk=photo.id)
+        return redirect('view_photo', pk=photo.id)
 
     context = {
         'categories': categories,
     }
-    return render(request, 'photos/add.html', context)
+    return render(request, 'photos/addPhoto.html', context)
 
 
+@login_required(login_url='login')
 def viewPhoto(request, pk):
     photo = Photo.objects.get(id=pk)
     context = {
         'photo': photo,
     }
-    return render(request, 'photos/photo.html', context)
+    return render(request, 'photos/viewPhoto.html', context)
 
 
 def editPhoto(request, pk):
@@ -75,13 +106,13 @@ def editPhoto(request, pk):
         photo.description = description
         photo.category = category
         photo.save()
-        return redirect('photo', pk=photo.id)
+        return redirect('view_photo', pk=photo.id)
 
     context = {
         'categories': categories,
         'photo': photo,
     }
-    return render(request, 'photos/edit.html', context)
+    return render(request, 'photos/editPhoto.html', context)
 
 
 def deletePhoto(request, pk):
@@ -90,6 +121,7 @@ def deletePhoto(request, pk):
     return redirect('gallery')
 
 
+@login_required(login_url='login')
 def categoryManager(request):
     msg = ''
     category = ''
@@ -108,7 +140,7 @@ def categoryManager(request):
         'msg': msg,
         'category': category,
     }
-    return render(request, 'photos/category.html', context)
+    return render(request, 'photos/categoryManager.html', context)
 
 
 def deleteCategory(request, pk):

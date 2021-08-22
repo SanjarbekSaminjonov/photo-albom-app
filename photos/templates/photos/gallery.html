@@ -9,15 +9,21 @@ Gallery
 <div class="row">
     <div class="col-md-3">
 
+        {% if request.user.is_authenticated %}
+        <div class="lead border p-2">
+            <b>Hello, {{request.user|title}} | </b> 
+            <a class="text-danger" href="{% url 'logout' %}">Logout</a>
+        </div>
+        {% endif %}
         <div class="card">
             <div class="card-header">
-                <a href="{% url 'gallery' %}">All categories</a>
+                <a class="a" href="{% url 'gallery' %}">All categories</a>
             </div>
             <ul class="list-group list-group-flush">
                 {% for category in categories %}
-                <a href="{% url 'gallery' %}?category={{category.name}}" class="list-group-item">{{category.name}}</a>
+                <a href="{% url 'gallery' %}?category={{category.name}}" class="a list-group-item">{{category.name}}</a>
                 {% endfor %}
-                <a class="btn btn-outline-dark btn-sm m-2" href="{% url 'category_manager' %}">Category manager</a>
+                <a class="btn btn-dark btn-sm m-2" href="{% url 'category_manager' %}">Category manager</a>
                 <a class="btn btn-dark btn-sm m-2" href="{% url 'add' %}">Add photo</a>
             </ul>
         </div>
@@ -34,7 +40,7 @@ Gallery
                         <p class="card-text">Category: {{photo.category.name}}</p>
                         {% endif %}
                     </div>
-                    <a class="btn btn-outline-dark btn-sm m-2 mt-0" href="{% url 'photo' photo.id %}">View</a>
+                    <a class="btn btn-outline-dark btn-sm m-2 mt-0" href="{% url 'view_photo' photo.id %}">View</a>
                 </div>
             </div>
             {% empty %}
