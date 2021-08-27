@@ -2,8 +2,29 @@ from django.shortcuts import render, redirect
 from .models import Category, Photo
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from .forms import CustomUserCreationForm
 
 # Create your views here.
+
+
+def registerUser(request):
+    form = CustomUserCreationForm
+
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+
+            new_user = authenticate(
+                username=user.username, password=request.POST['password1'])
+            login(request, new_user)
+            return redirect('gallery')
+
+    context = {
+        'form': form,
+        'page': 'register',
+    }
+    return render(request, 'photos/loginRegister.html', context)
 
 
 def loginUser(request):
@@ -22,9 +43,10 @@ def loginUser(request):
     context = {
         'username': username,
         'msg': msg,
+        'page': 'login',
     }
 
-    return render(request, 'photos/login_register.html', context)
+    return render(request, 'photos/loginRegister.html', context)
 
 
 @login_required(login_url='login')
