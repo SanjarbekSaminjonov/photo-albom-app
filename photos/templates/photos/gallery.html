@@ -10,9 +10,9 @@ Gallery
     <div class="col-md-3">
 
         {% if request.user.is_authenticated %}
-        <div class="lead border p-2">
-            <b>Hello, {{request.user|title}} | </b> 
-            <a class="text-danger" href="{% url 'logout' %}">Logout</a>
+        <div class="lead border p-2 mb-4 text-center">
+            <b>Hello, {{request.user|title}} </b> 
+            <a class="btn btn-outline-danger btn-block btn-sm mt-1" href="{% url 'logout' %}">Logout</a>
         </div>
         {% endif %}
         <div class="card">

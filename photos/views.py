@@ -55,26 +55,28 @@ def logoutUser(request):
     return redirect('gallery')
 
 
+@login_required(login_url='login')
 def gallery(request):
     category_name = request.GET.get('category')
 
     if category_name == None:
-        photos = Photo.objects.all()
+        photos = Photo.objects.filter(category__author=request.user).order_by('-id')
     else:
-        photos = Photo.objects.filter(category__name=category_name)
+        photos = Photo.objects.filter(
+            category__name=category_name, category__author=request.user).order_by('-id')
 
-    categories = Category.objects.all()
+    categories = Category.objects.filter(author=request.user)
 
     context = {
         'categories': categories,
-        'photos': photos[::-1],
+        'photos': photos,
     }
     return render(request, 'photos/gallery.html', context)
 
 
 @login_required(login_url='login')
 def addPhoto(request):
-    categories = Category.objects.all()
+    categories = Category.objects.filter(author=request.user)
 
     if request.method == "POST":
         data = request.POST
@@ -85,7 +87,8 @@ def addPhoto(request):
 
         elif data['category_new'] != '':
             category, created = Category.objects.get_or_create(
-                name=data['category_new'].title()
+                name=data['category_new'].title(),
+                author=request.user,
             )
         else:
             category = None
@@ -113,7 +116,7 @@ def viewPhoto(request, pk):
 
 
 def editPhoto(request, pk):
-    categories = Category.objects.all()
+    categories = Category.objects.filter(author=request.user)
     photo = Photo.objects.get(id=pk)
 
     if request.method == "POST":
@@ -122,7 +125,9 @@ def editPhoto(request, pk):
         category_name_new = request.POST['category_new'].title()
         if category_name_new != '':
             category, created = Category.objects.get_or_create(
-                name=category_name_new)
+                name=category_name_new,
+                author=request.user
+            )
         elif category_id != 'none':
             category = Category.objects.get(id=category_id)
         photo.description = description
@@ -150,15 +155,18 @@ def categoryManager(request):
 
     if request.method == 'POST':
         category_new = request.POST['category_new'].title()
-        category, created = Category.objects.get_or_create(name=category_new)
+        category, created = Category.objects.get_or_create(
+            name=category_new,
+            author=request.user
+        )
         if not created:
             msg = 'It has already created!'
         else:
             category = ''
 
-    categories = Category.objects.all()
+    categories = Category.objects.filter(author=request.user).order_by('-id')
     context = {
-        'categories': categories[::-1],
+        'categories': categories,
         'msg': msg,
         'category': category,
     }
